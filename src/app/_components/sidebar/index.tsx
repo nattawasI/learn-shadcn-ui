@@ -20,7 +20,7 @@ const sidebarMenu: SidebarMenuType[] = [
   {
     id: 'dashboard',
     label: 'Dashboard',
-    href: '/dashboard',
+    href: '/',
     icon: <LayoutDashboard className="w-4 h-4 flex-shrink-0" />,
   },
 ]

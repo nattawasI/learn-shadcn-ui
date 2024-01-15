@@ -1,3 +1,6 @@
+/** libs */
+import { usePathname } from 'next/navigation'
+
 /** components */
 import Link from 'next/link'
 import { Button } from '@/components/ui/button'
@@ -13,11 +16,15 @@ type MenuItemProps = {
 const MenuItem = (props: MenuItemProps): JSX.Element => {
   const { isExpand, icon, label, href } = props
 
+  const pathname = usePathname()
+
+  const isActive = pathname === href
+
   if (isExpand) {
     return (
       <Button
         asChild
-        variant="secondary"
+        variant={isActive ? 'default' : 'secondary'}
         className="justify-start"
       >
         <Link href={href}>
@@ -35,7 +42,7 @@ const MenuItem = (props: MenuItemProps): JSX.Element => {
       >
         <Button
           asChild
-          variant="secondary"
+          variant={isActive ? 'default' : 'secondary'}
           size="icon"
         >
           <Link href={href}>{icon}</Link>
